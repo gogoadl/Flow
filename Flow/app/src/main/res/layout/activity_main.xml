@@ -5,105 +5,134 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="10"
+    android:weightSum="12"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
-        >
-    </LinearLayout>
+        android:layout_weight="7.5"
+        android:orientation="vertical"
+        android:weightSum="10">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:weightSum="14"
-        >
+
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="8"
-            android:text="재생목록이 비었습니다."
+            android:id="@+id/text_song"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:text="Celebrity"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/text_singer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="아이유 (IU)"
+            android:textAlignment="center"></TextView>
+
+        <ImageView
+            android:id="@+id/img_album"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            android:src="@drawable/celebrity"></ImageView>
+
+        <TextView
             android:id="@+id/text_lyrics"
-            >
-        </TextView>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/btn_previous_play"
-            >
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:paddingTop="10dp"
+            android:text="세상의 모서리 \n 구부정하게 커버린"
+            android:textAlignment="center"></TextView>
 
-        </Button>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8">
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:id="@+id/btn_play"
-            >
+        </LinearLayout>
+    </LinearLayout>
 
-        </Button>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/btn_next_play"
-            >
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/sb_play"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        </Button>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:id="@+id/btn_play_list"
-        >
-
-    </Button>
+        </androidx.appcompat.widget.AppCompatSeekBar>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:weightSum="4">
+        android:layout_weight="1.5"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
         <Button
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="홈"
-            android:id="@+id/btn_home"
-            >
-        </Button>
-        <Button
+
             android:layout_weight="1"
+            android:background="@android:drawable/ic_menu_help">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_previous"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="둘러보기"
-            android:id="@+id/btn_look"
-            >
-        </Button>
-        <Button
             android:layout_weight="1"
+            android:background="@android:drawable/ic_media_previous">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_play"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="검색"
-            android:id="@+id/btn_search"
-            >
-        </Button>
-        <Button
             android:layout_weight="1"
+            android:background="@android:drawable/ic_media_play">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_next"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="보관함"
-            android:id="@+id/btn_profile">
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_media_next">
+
         </Button>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_menu_help">
+
+        </Button>
+
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

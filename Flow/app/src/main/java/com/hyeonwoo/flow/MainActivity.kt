@@ -5,9 +5,15 @@ import android.media.MediaActionSound
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.SeekBar
+import android.widget.TextView
+import org.w3c.dom.Text
 import java.lang.Exception
+import java.net.URL
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -18,26 +24,36 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var btn_lock : Button = findViewById(R.id.btn_look)
-        var btn_play_list : Button = findViewById(R.id.btn_play_list)
+
+        var text_singer : TextView = findViewById(R.id.text_singer)
+        var text_song : TextView = findViewById(R.id.text_song)
+        var text_lyrics : TextView = findViewById(R.id.text_lyrics)
         var btn_play : Button = findViewById(R.id.btn_play)
-        var btn_next_play : Button = findViewById(R.id.btn_next_play)
-        var btn_previous_play : Button = findViewById(R.id.btn_previous_play)
-        var btn_profile : Button = findViewById(R.id.btn_profile)
-        var btn_search : Button = findViewById(R.id.btn_search)
-        var btn_home : Button = findViewById(R.id.btn_home)
+        var btn_next : Button = findViewById(R.id.btn_next)
+        var btn_previous : Button = findViewById(R.id.btn_previous)
+        var sb_play : SeekBar = findViewById(R.id.sb_play)
+        var img_album : ImageView = findViewById(R.id.img_album)
 
-        btn_lock.setOnClickListener(this)
-        btn_play_list.setOnClickListener(this)
+        text_singer.setOnClickListener(this)
+        text_song.setOnClickListener(this)
+        text_lyrics.setOnClickListener(this)
+        btn_next.setOnClickListener(this)
         btn_play.setOnClickListener(this)
-        btn_next_play.setOnClickListener(this)
-        btn_previous_play.setOnClickListener(this)
-        btn_profile.setOnClickListener(this)
-        btn_search.setOnClickListener(this)
-        btn_home.setOnClickListener(this)
+        btn_previous.setOnClickListener(this)
 
-
+        getJsonArrayFromUrl("https://grepp-programmers-challenges.s3.ap-northeast-2.amazonaws.com/2020-flo/song.json")
     }
+
+    fun getJsonArrayFromUrl(url : String) {
+        try {
+            val apiResponse = URL(url).readText()
+
+            Log.d("apiResponse", apiResponse)
+        } catch (e : Exception) {
+            e.printStackTrace()
+        }
+    }
+
 
     fun playAudio() {
         try {
@@ -66,37 +82,29 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+
         when (v?.id) {
-            // Fragment Click Event
-            R.id.btn_home ->
-            {
-
-
-            }
-            R.id.btn_look -> { }
-            R.id.btn_search -> { }
-            R.id.btn_profile -> { }
             // Music Click Event
-            R.id.btn_previous_play -> { }
+            R.id.btn_previous -> { }
 
             R.id.btn_play ->
             {
                 try {
 
-                    var mediaPlayer = MediaPlayer().apply {
-                        setDataSource(SAMPLE_URL)
-                        
-                        prepare()
-                        start()
-                    }
+                    playAudio()
+//                    var mediaPlayer = MediaPlayer().apply {
+//                        setDataSource(SAMPLE_URL)
+//
+//                        prepare()
+//                        start()
+//                    }
 
                 } catch (e : Exception) {
                     e.printStackTrace()
                 }
             }
 
-            R.id.btn_next_play -> { }
-            R.id.btn_play_list -> { }
+            R.id.btn_next -> { }
 
         }
     }
