@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/browseFragment">
+
+    <fragment
+        android:id="@+id/browseFragment"
+        android:name="com.hyeonwoo.flow.ui.BrowseFragment"
+        android:label="fragment_browse"
+        tools:layout="@layout/fragment_browse" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.hyeonwoo.flow.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/lockerFragment"
+        android:name="com.hyeonwoo.flow.ui.LockerFragment"
+        android:label="fragment_locker"
+        tools:layout="@layout/fragment_locker" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.hyeonwoo.flow.ui.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+</navigation>
