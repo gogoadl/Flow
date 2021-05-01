@@ -1,138 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="12"
-    tools:context=".MainActivity">
+    android:layout_width="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.exoplayer2.ui.PlayerControlView
+        android:id="@+id/main_pcv"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"></LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="7.5"
-        android:orientation="vertical"
-        android:weightSum="10">
-
-
-        <TextView
-            android:id="@+id/text_song"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="bottom"
-            android:text="Celebrity"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:id="@+id/text_singer"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="아이유 (IU)"
-            android:textAlignment="center"></TextView>
-
-        <ImageView
-            android:id="@+id/img_album"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="6"
-            android:src="@drawable/celebrity"></ImageView>
-
-        <TextView
-            android:id="@+id/text_lyrics"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.2"
-            android:paddingTop="10dp"
-            android:text="세상의 모서리 \n 구부정하게 커버린"
-            android:textAlignment="center"></TextView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.8">
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <androidx.appcompat.widget.AppCompatSeekBar
-            android:id="@+id/sb_play"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </androidx.appcompat.widget.AppCompatSeekBar>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:orientation="horizontal"
-        android:weightSum="5">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-
-            android:layout_weight="1"
-            android:background="@android:drawable/ic_menu_help">
-
-        </Button>
-
-        <Button
-            android:id="@+id/btn_previous"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:drawable/ic_media_previous">
-
-        </Button>
-
-        <Button
-            android:id="@+id/btn_play"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:drawable/ic_media_play">
-
-        </Button>
-
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:drawable/ic_media_next">
-
-        </Button>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:drawable/ic_menu_help">
-
-        </Button>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"></LinearLayout>
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>
