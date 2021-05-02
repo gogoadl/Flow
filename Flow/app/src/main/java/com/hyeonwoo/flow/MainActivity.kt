@@ -2,8 +2,13 @@ package com.hyeonwoo.flow
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.google.android.exoplayer2.ExoPlayerFactory.*
+import com.google.android.exoplayer2.SimpleExoPlayer
 import com.hyeonwoo.flow.databinding.ActivityMainBinding
+import com.hyeonwoo.flow.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
     /*
@@ -19,14 +24,23 @@ class MainActivity : AppCompatActivity() {
     */
     private lateinit var binding : ActivityMainBinding
 
+
+
+    var player : SimpleExoPlayer? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Kotlin Extensions가 deprecated 되었으므로, View Binding을 사용하도록 변경
+        // Kotlin Extensions가 deprecated 되었으므로, data Binding을 사용하도록 변경
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var navController = findNavController(R.id.nav_host_fragment)
+        val viewModel : MainViewModel by viewModels()
 
+        viewModel.getJsonRequest()
+
+        initializePlayer()
+
+        var navController = findNavController(R.id.nav_host_fragment)
 
         binding.btnHome.setOnClickListener { navController.navigate(R.id.homeFragment) }
         binding.btnBrowse.setOnClickListener { navController.navigate(R.id.browseFragment) }
@@ -35,4 +49,20 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    fun initializePlayer() {
+
+        if (player == null) {
+
+            player = newSimpleInstance(this)
+            binding.mainPcv.player = player
+            binding.mainPcv.showTimeoutMs = 0
+//            val defaultHttpDataSourceFactory =
+//                    DefaultHttpDataSourceFactory(getString(R.string.app_name))
+//            val mediaSource = ProgressiveMediaSource.Factory(defaultHttpDataSourceFactory)
+//                .createMediaSource(Uri.parse(songUrl))
+//            player!!.prepare(mediaSource)
+        }
+
+    }
 }
